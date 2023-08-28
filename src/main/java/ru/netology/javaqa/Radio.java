@@ -4,6 +4,14 @@ public class Radio {
 
     private int currentStation;
     private int currentVolume;
+    private int amountStations = 10;
+
+    public Radio() {
+    }
+
+    public Radio (int amountStations) {
+        this.amountStations = amountStations;
+    }
 
 
     public int getCurrentStation() {
@@ -15,7 +23,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentStation == 9) {
+        if (currentStation == amountStations - 1) {
             currentStation = 0;
             return;
         }
@@ -24,7 +32,7 @@ public class Radio {
 
     public void prev() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = amountStations - 1;
             return;
         }
         currentStation = currentStation - 1;
@@ -34,7 +42,7 @@ public class Radio {
         if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > (amountStations - 1)) {
             return;
         }
         currentStation = newCurrentStation;
